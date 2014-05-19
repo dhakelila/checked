@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checked</title>
+	<style>
+		li {
+			float: left;
+			width: 30px;
+			height: 30px;
+			margin: 10px;
+		}
+		.red { background-color: red;}
+		.blue { background-color: blue}
+	</style>
+</head>
+<body>
+	<input type="checkbox" id="blue"><label for="">blue</label>
+	<input type="checkbox" id="red"><label for="">red</label>
+	<ul>
+		<li class="red"></li>
+		<li class="blue"></li>
+		<li class="red"></li>
+		<li class="blue"></li>
+		<li class="red"></li>
+	</ul>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+	
+var $trigger;
+$('#red, #blue').prop('checked', true);
+
+function hide (e) {
+	$trigger = $(e.currentTarget);
+	color = $trigger.attr('id');
+	
+	if ($trigger.prop('checked')) {
+		$('.'+color+'').css('display','block');
+	} else {
+		$('.'+color+'').css('display','none');
+	}
+}
+
+$('#red, #blue').on('click', hide);
+
+</script>
+</body>
+</html>
